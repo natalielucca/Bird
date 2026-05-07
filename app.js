@@ -134,10 +134,10 @@ const birds = [
     sound: "Korta pigga tjipp: tjilp, tjilp.",
     clue: "Gråsparven pratar ofta i små grupper nära hus och buskar.",
     recording: {
-      xc: "XC784202",
-      url: "https://xeno-canto.org/784202/download#t=0,12",
-      page: "https://xeno-canto.org/784202",
-      recordist: "Alan Dalton",
+      xc: "XC773153",
+      url: "https://xeno-canto.org/773153/download#t=0,12",
+      page: "https://xeno-canto.org/773153",
+      recordist: "Gunnar Dolk",
       license: "CC BY-NC-SA 4.0",
     },
     photo: {
