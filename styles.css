@@ -18,13 +18,16 @@
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
   background: var(--bg);
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
   color: var(--ink);
   background:
     linear-gradient(135deg, rgba(47, 123, 88, 0.16) 0 22%, transparent 22% 100%),
@@ -54,15 +57,15 @@ h3 {
 
 h1 {
   max-width: 12ch;
-  font-size: clamp(3rem, 7vw, 6.8rem);
+  font-size: clamp(2.7rem, 5.4vw, 5.6rem);
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-size: clamp(1.4rem, 2.4vw, 2.6rem);
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.05rem;
 }
 
 .is-hidden {
@@ -70,13 +73,20 @@ h3 {
 }
 
 .quest-shell {
+  display: flex;
+  height: 100svh;
+  flex-direction: column;
+  gap: 10px;
   width: min(1280px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 14px 0 44px;
+  padding: 10px 0;
 }
 
 .hero {
-  min-height: 92vh;
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -89,6 +99,7 @@ h3 {
 }
 
 .hero.is-compact {
+  flex: 0 0 auto;
   min-height: auto;
 }
 
@@ -97,7 +108,8 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 16px;
+  flex: 0 0 auto;
+  padding: 10px 14px;
 }
 
 .brand {
@@ -112,8 +124,8 @@ h3 {
 
 .brand-mark {
   display: grid;
-  width: 54px;
-  height: 54px;
+  width: 46px;
+  height: 46px;
   place-items: center;
   border: 2px solid rgba(255, 255, 255, 0.72);
   border-radius: 50%;
@@ -124,8 +136,8 @@ h3 {
 
 .dragon-logo {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
 }
 
 .mode-tabs {
@@ -162,10 +174,11 @@ h3 {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 450px);
-  gap: 32px;
-  align-items: end;
-  min-height: calc(92vh - 76px);
-  padding: min(7vw, 70px);
+  min-height: 0;
+  flex: 1 1 auto;
+  gap: clamp(18px, 3vw, 32px);
+  align-items: center;
+  padding: clamp(16px, 4vw, 42px);
 }
 
 .hero-copy {
@@ -187,9 +200,9 @@ h3 {
 
 .intro {
   max-width: 52ch;
-  margin-top: 18px;
-  font-size: 1.18rem;
-  line-height: 1.55;
+  margin-top: 12px;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.42;
 }
 
 .quiz-card,
@@ -204,7 +217,7 @@ h3 {
 }
 
 .quiz-card {
-  padding: 18px;
+  padding: 14px;
   backdrop-filter: blur(14px);
 }
 
@@ -229,9 +242,9 @@ h3 {
 .bird-stage {
   position: relative;
   display: grid;
-  min-height: 210px;
+  min-height: clamp(120px, 22vh, 180px);
   place-items: center;
-  margin: 12px 0;
+  margin: 8px 0;
   overflow: hidden;
   border-radius: var(--radius);
   background: linear-gradient(180deg, #d9eef5, #eff7e4);
@@ -239,8 +252,8 @@ h3 {
 
 .sky-ring {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: rgba(242, 184, 75, 0.32);
 }
@@ -281,7 +294,7 @@ h3 {
   position: relative;
   z-index: 1;
   width: min(280px, 82%);
-  height: 190px;
+  height: clamp(120px, 20vh, 170px);
   overflow: hidden;
   border: 4px solid rgba(255, 253, 247, 0.9);
   border-radius: var(--radius);
@@ -289,7 +302,7 @@ h3 {
 }
 
 .call-hint {
-  min-height: 48px;
+  min-height: 34px;
   color: var(--muted);
   font-weight: 700;
   line-height: 1.45;
@@ -298,11 +311,11 @@ h3 {
 .sound-button {
   display: inline-flex;
   width: 100%;
-  min-height: 52px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 14px 0;
+  margin: 9px 0;
   color: white;
   background: var(--leaf);
 }
@@ -324,8 +337,8 @@ h3 {
 }
 
 .answer-button {
-  min-height: 58px;
-  padding: 10px;
+  min-height: 48px;
+  padding: 8px 10px;
   color: var(--ink);
   background: #edf4e9;
   text-align: left;
@@ -347,15 +360,15 @@ h3 {
 }
 
 .feedback {
-  min-height: 42px;
-  padding: 10px 0 0;
+  min-height: 32px;
+  padding: 8px 0 0;
   color: var(--muted);
   font-weight: 760;
   line-height: 1.35;
 }
 
 .button {
-  min-height: 44px;
+  min-height: 40px;
   padding: 0 16px;
   color: white;
   background: var(--water);
@@ -372,8 +385,9 @@ h3 {
 }
 
 .progress-band {
-  margin: 16px 0;
-  padding: 18px;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 12px 16px;
 }
 
 .progress-wrap {
@@ -385,7 +399,7 @@ h3 {
 }
 
 .progress-track {
-  height: 14px;
+  height: 12px;
   overflow: hidden;
   border-radius: 999px;
   background: #dce7d8;
@@ -401,29 +415,42 @@ h3 {
 }
 
 .content-view {
-  margin-top: 26px;
+  min-height: 0;
+  flex: 1 1 auto;
+  margin-top: 0;
+}
+
+.content-view:not(.is-hidden) {
+  display: flex;
+  flex-direction: column;
 }
 
 .section-heading {
-  margin-bottom: 14px;
+  flex: 0 0 auto;
+  margin-bottom: 8px;
   align-items: end;
 }
 
 .bird-grid {
   display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  gap: 8px;
 }
 
 .bird-card {
   display: grid;
-  gap: 12px;
-  padding: 14px;
+  min-height: 0;
+  gap: 6px;
+  padding: 9px;
+  overflow: hidden;
 }
 
 .bird-thumb {
   display: grid;
-  min-height: 150px;
+  height: clamp(92px, 17vh, 150px);
+  min-height: 0;
   place-items: center;
   overflow: hidden;
   border-radius: var(--radius);
@@ -443,19 +470,19 @@ h3 {
 
 .bird-name span {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 850;
 }
 
 .bird-card p {
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.78rem;
   font-weight: 650;
   line-height: 1.45;
 }
 
 .mini-button {
-  min-height: 38px;
+  min-height: 32px;
   padding: 0 10px;
   border: 0;
   border-radius: var(--radius);
@@ -469,15 +496,17 @@ h3 {
   border-radius: 999px;
   color: var(--leaf-dark);
   background: #dfeee1;
-  font-size: 0.78rem;
+  font-size: 0.68rem;
   font-weight: 900;
 }
 
 .training-panel {
   display: grid;
+  min-height: 0;
+  flex: 1 1 auto;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
   gap: 16px;
-  padding: 16px;
+  padding: 12px;
 }
 
 .sound-list {
@@ -487,7 +516,7 @@ h3 {
 }
 
 .sound-row {
-  min-height: 64px;
+  min-height: 54px;
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -506,7 +535,7 @@ h3 {
 
 .listening-card {
   align-self: start;
-  padding: 18px;
+  padding: 14px;
   background: #fff9e8;
 }
 
@@ -518,7 +547,7 @@ h3 {
 }
 
 .training-photo {
-  height: 190px;
+  height: clamp(130px, 28vh, 220px);
   margin-bottom: 14px;
   overflow: hidden;
   border-radius: var(--radius);
