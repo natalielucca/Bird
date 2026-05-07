@@ -11,7 +11,16 @@
       <header class="hero">
         <nav class="topbar" aria-label="Huvudmeny">
           <a class="brand" href="#quiz" aria-label="Drakarnas Bird Quest">
-            <span class="brand-mark">DBQ</span>
+            <span class="brand-mark" aria-hidden="true">
+              <svg class="dragon-logo" viewBox="0 0 120 120" role="img">
+                <path
+                  d="M116 19 C98 35 77 45 49 49 C64 54 82 62 95 76 C108 90 107 105 91 115 C99 97 92 79 72 69 C66 85 54 102 36 106 C45 103 51 98 55 90 C48 93 39 93 31 89 C39 88 47 84 53 78 C45 80 37 77 31 71 C40 72 49 68 57 60 C42 68 32 80 19 90 C10 97 4 103 1 111 C3 101 11 94 25 89 C12 90 4 94 0 101 C4 87 16 81 34 82 C48 75 58 65 66 52 C50 58 36 71 24 88 C25 75 29 64 35 56 C25 58 15 65 10 79 C7 72 8 64 14 56 C8 56 3 61 0 69 C0 56 9 46 25 40 C35 36 35 33 33 30 C31 24 36 18 47 14 C59 10 68 2 83 0 C73 7 64 15 62 25 C60 34 68 38 81 35 C94 32 105 27 116 19 Z"
+                  fill="currentColor"
+                />
+                <path d="M42 36 C48 30 55 28 62 30 C55 33 49 39 44 45 C42 42 41 39 42 36 Z" fill="#fffdf7" />
+                <path d="M10 63 C14 58 19 57 24 58 C18 61 14 65 11 70 C10 68 9 65 10 63 Z" fill="#fffdf7" />
+              </svg>
+            </span>
             <span>Drakarnas Bird Quest</span>
           </a>
           <div class="mode-tabs" role="tablist" aria-label="Välj läge">
@@ -21,13 +30,13 @@
           </div>
         </nav>
 
-        <section class="hero-grid" id="quiz">
+        <section class="hero-grid" id="quizView">
           <div class="hero-copy">
             <p class="eyebrow">Drakebergsskolans fågeljakt</p>
-            <h1>Lyssna, gissa och lär dig Sveriges skolgårdsfåglar.</h1>
+            <h1>Drakarnas Bird Quest</h1>
             <p class="intro">
-              Tio vanliga fåglar. Riktiga inspelningar. Snabba frågor. Perfekt för en lektion, rastspaning
-              eller en klassutmaning.
+              Tio vanliga fåglar, riktiga inspelningar och en lagom dos Davidsk klassrumsdramatik.
+              Lyssna, gissa och bli den som faktiskt vet vad som låter i busken.
             </p>
           </div>
 
@@ -55,7 +64,7 @@
         </section>
       </header>
 
-      <section class="progress-band" aria-label="Quizstatus">
+      <section class="progress-band" id="quizProgress" aria-label="Quizstatus">
         <div>
           <p class="eyebrow">Klassmål</p>
           <h2>Få minst 8 rätt och bli fågeldrake.</h2>
@@ -66,15 +75,11 @@
         </div>
       </section>
 
-      <section class="content-view" id="atlasView">
+      <section class="content-view is-hidden" id="atlasView">
         <div class="section-heading">
           <p class="eyebrow">Fågelbok</p>
           <h2>De 10 fåglarna att kunna först</h2>
         </div>
-        <p class="source-note">
-          Fågellätena är riktiga svenska inspelningar från xeno-canto och bilderna kommer från Wikimedia Commons.
-          Upphovsperson och licens står på varje fågelkort.
-        </p>
         <div class="bird-grid" id="birdGrid"></div>
       </section>
 

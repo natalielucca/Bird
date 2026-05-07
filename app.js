@@ -57,10 +57,10 @@ const birds = [
     sound: "Mjuk, klar och flöjtande kvällssång.",
     clue: "Koltrasten sjunger lugnt och vackert, ofta från ett tak eller träd.",
     recording: {
-      xc: "XC1029175",
-      url: "https://xeno-canto.org/1029175/download#t=0,16",
-      page: "https://xeno-canto.org/1029175",
-      recordist: "Esperanza Poveda",
+      xc: "XC569639",
+      url: "https://xeno-canto.org/569639/download#t=0,16",
+      page: "https://xeno-canto.org/569639",
+      recordist: "Niels Krabbe",
       license: "CC BY-NC-SA 4.0",
     },
     photo: {
@@ -262,6 +262,9 @@ const state = {
 
 const els = {
   tabs: document.querySelectorAll(".tab"),
+  hero: document.querySelector(".hero"),
+  quizView: document.querySelector("#quizView"),
+  quizProgress: document.querySelector("#quizProgress"),
   atlasView: document.querySelector("#atlasView"),
   trainingView: document.querySelector("#trainingView"),
   birdGrid: document.querySelector("#birdGrid"),
@@ -300,16 +303,17 @@ function init() {
 
 function switchView(view) {
   els.tabs.forEach((tab) => tab.classList.toggle("is-active", tab.dataset.view === view));
-  els.atlasView.classList.toggle("is-hidden", view === "training");
+  const isQuiz = view === "quiz";
+
+  if (!isQuiz) stopBirdSound();
+
+  els.hero.classList.toggle("is-compact", !isQuiz);
+  els.quizView.classList.toggle("is-hidden", !isQuiz);
+  els.quizProgress.classList.toggle("is-hidden", !isQuiz);
+  els.atlasView.classList.toggle("is-hidden", view !== "atlas");
   els.trainingView.classList.toggle("is-hidden", view !== "training");
 
-  if (view === "quiz") {
-    document.querySelector("#quiz").scrollIntoView({ behavior: "smooth", block: "start" });
-  } else if (view === "atlas") {
-    els.atlasView.scrollIntoView({ behavior: "smooth", block: "start" });
-  } else {
-    els.trainingView.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function renderQuestion() {
@@ -417,8 +421,6 @@ function renderBirdGrid() {
           </div>
           <p>${bird.look}</p>
           <p><strong>Läte:</strong> ${bird.sound}</p>
-          <p class="credit">Bild: <a href="${bird.photo.page}" target="_blank" rel="noreferrer">Wikimedia Commons</a>, ${bird.photo.credit}</p>
-          <p class="credit">Ljud: <a href="${bird.recording.page}" target="_blank" rel="noreferrer">${bird.recording.xc}</a>, ${bird.recording.recordist}, ${bird.recording.license}</p>
           <div class="bird-card__actions">
             <span class="tag">${bird.habitat}</span>
             <button class="mini-button" type="button" data-sound="${bird.id}">Lyssna</button>
@@ -454,7 +456,7 @@ function renderSoundList() {
     if (!row) return;
     const bird = findBird(row.dataset.train);
     els.trainingTitle.textContent = bird.name;
-    els.trainingText.innerHTML = `${photoMarkup(bird, "training-photo")}${bird.clue} Kännetecken: ${bird.look}<br><br><span>Bild: <a href="${bird.photo.page}" target="_blank" rel="noreferrer">Wikimedia Commons</a>, ${bird.photo.credit}</span><br><span>Ljud: <a href="${bird.recording.page}" target="_blank" rel="noreferrer">${bird.recording.xc}</a>, ${bird.recording.recordist}, ${bird.recording.license}</span>`;
+    els.trainingText.innerHTML = `${photoMarkup(bird, "training-photo")}${bird.clue} Kännetecken: ${bird.look}`;
     playBird(bird);
   });
 }
