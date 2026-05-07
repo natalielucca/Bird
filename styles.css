@@ -565,9 +565,16 @@ h3 {
 }
 
 @media (max-width: 720px) {
+  body {
+    min-height: 100%;
+    overflow: auto;
+  }
+
   .quest-shell {
+    height: auto;
+    min-height: 100svh;
     width: min(100% - 18px, 1280px);
-    padding-top: 9px;
+    padding: 9px 0 24px;
   }
 
   .hero {
@@ -582,23 +589,130 @@ h3 {
   }
 
   .mode-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     overflow-x: auto;
     border-radius: var(--radius);
   }
 
+  .tab {
+    min-height: 42px;
+    padding: 0 8px;
+    white-space: nowrap;
+  }
+
   .hero-grid {
     min-height: auto;
-    padding: 28px 12px 12px;
+    padding: 18px 12px 12px;
   }
 
   h1 {
-    max-width: 10ch;
-    font-size: 3.3rem;
+    max-width: 11ch;
+    font-size: clamp(2.65rem, 16vw, 4.1rem);
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .dragon-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .quiz-card {
+    padding: 12px;
+  }
+
+  .bird-stage {
+    min-height: 140px;
+  }
+
+  .sound-button {
+    min-height: 46px;
   }
 
   .answers,
   .bird-grid,
   .sound-list {
     grid-template-columns: 1fr;
+  }
+
+  .progress-band {
+    gap: 10px;
+  }
+
+  .content-view:not(.is-hidden) {
+    display: block;
+  }
+
+  .section-heading {
+    margin-top: 8px;
+  }
+
+  .bird-grid {
+    gap: 10px;
+  }
+
+  .bird-card {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .bird-thumb {
+    height: 190px;
+  }
+
+  .bird-card p {
+    font-size: 0.92rem;
+  }
+
+  .bird-card__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mini-button {
+    min-height: 40px;
+  }
+
+  .training-panel {
+    display: block;
+    padding: 10px;
+  }
+
+  .sound-list {
+    margin-bottom: 10px;
+  }
+
+  .sound-row {
+    min-height: 58px;
+  }
+
+  .training-photo {
+    height: 210px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand {
+    font-size: 0.9rem;
+  }
+
+  .tab {
+    font-size: 0.86rem;
+  }
+
+  .answer-button {
+    min-height: 44px;
   }
 }
