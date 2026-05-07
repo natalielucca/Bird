@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drakarnas Bird Quest</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="quest-shell">
+      <header class="hero">
+        <nav class="topbar" aria-label="Huvudmeny">
+          <a class="brand" href="#quiz" aria-label="Drakarnas Bird Quest">
+            <span class="brand-mark">DBQ</span>
+            <span>Drakarnas Bird Quest</span>
+          </a>
+          <div class="mode-tabs" role="tablist" aria-label="Välj läge">
+            <button class="tab is-active" type="button" data-view="quiz">Quiz</button>
+            <button class="tab" type="button" data-view="atlas">Fågelbok</button>
+            <button class="tab" type="button" data-view="training">Träna ljud</button>
+          </div>
+        </nav>
+
+        <section class="hero-grid" id="quiz">
+          <div class="hero-copy">
+            <p class="eyebrow">Drakebergsskolans fågeljakt</p>
+            <h1>Lyssna, gissa och lär dig Sveriges skolgårdsfåglar.</h1>
+            <p class="intro">
+              Tio vanliga fåglar. Riktiga inspelningar. Snabba frågor. Perfekt för en lektion, rastspaning
+              eller en klassutmaning.
+            </p>
+          </div>
+
+          <section class="quiz-card" aria-live="polite">
+            <div class="quiz-topline">
+              <span id="roundLabel">Fråga 1 av 10</span>
+              <strong id="scoreLabel">0 poäng</strong>
+            </div>
+            <div class="bird-stage" aria-hidden="true">
+              <div class="sky-ring"></div>
+              <div class="bird-art" id="quizBirdArt"></div>
+            </div>
+            <p class="call-hint" id="callHint">Lyssna på fågeln och välj rätt namn.</p>
+            <button class="sound-button" id="playQuizSound" type="button">
+              <span class="sound-icon">♪</span>
+              Lyssna på fågeln
+            </button>
+            <div class="answers" id="answerGrid" aria-label="Svarsalternativ"></div>
+            <div class="feedback" id="feedback"></div>
+            <div class="quiz-actions">
+              <button class="button button-secondary" id="restartQuiz" type="button">Börja om</button>
+              <button class="button" id="nextQuestion" type="button" disabled>Nästa fågel</button>
+            </div>
+          </section>
+        </section>
+      </header>
+
+      <section class="progress-band" aria-label="Quizstatus">
+        <div>
+          <p class="eyebrow">Klassmål</p>
+          <h2>Få minst 8 rätt och bli fågeldrake.</h2>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <span id="progressText">0/10 klara</span>
+        </div>
+      </section>
+
+      <section class="content-view" id="atlasView">
+        <div class="section-heading">
+          <p class="eyebrow">Fågelbok</p>
+          <h2>De 10 fåglarna att kunna först</h2>
+        </div>
+        <p class="source-note">
+          Fågellätena är riktiga svenska inspelningar från xeno-canto och bilderna kommer från Wikimedia Commons.
+          Upphovsperson och licens står på varje fågelkort.
+        </p>
+        <div class="bird-grid" id="birdGrid"></div>
+      </section>
+
+      <section class="content-view is-hidden" id="trainingView">
+        <div class="section-heading">
+          <p class="eyebrow">Träna ljud</p>
+          <h2>Hör skillnad på rytm, ton och känsla</h2>
+        </div>
+        <div class="training-panel">
+          <div class="sound-list" id="soundList"></div>
+          <aside class="listening-card">
+            <p class="eyebrow">Lyssnarknep</p>
+            <h3 id="trainingTitle">Välj en fågel</h3>
+            <p id="trainingText">
+              Tryck på ett namn för att höra ett kort ljudminne och få tips på vad du ska lägga märke till.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
